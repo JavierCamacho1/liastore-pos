@@ -1,0 +1,28 @@
+# LIASTORE POS 
+
+Sistema de Punto de Venta (POS) y control de inventarios. Este proyecto fue desarrollado como parte de la residencia profesional.
+
+##  Características principales
+- **Gestión de Inventario:** Sistema de productos y variantes (Tallas/Colores) para evitar duplicidad.
+- **Seguridad por Roles:** Niveles de acceso diferenciados para Administradores y Cajeros.
+- **Diseño:** Interfaz construida con Flet, priorizando la experiencia de usuario (UX).
+- **Arquitectura Offline-First:** Base de datos local con SQLite para garantizar la operación sin internet.
+
+##  Arquitectura del Proyecto
+
+- 📂 `main.py`: *Controlador principal*. Gestiona el enrutamiento y la lógica de sesión.
+- 📂 `database.py`: *Modelo*. Contiene la definición de las tablas y la conexión a SQLite.
+- 📂 `views/`: *Vistas*. Archivos independientes para cada pantalla (Login, Inventario, POS).
+- 📂 `components/`: *Componentes reutilizables*. Elementos de UI como el Sidebar.
+
+##  Tecnologías utilizadas
+- **Lenguaje:** Python 3.12+
+- **Framework UI:** [Flet](https://flet.dev/) (Basado en Flutter)
+- **Base de Datos:** SQLite 3
+- **Control de Versiones:** Git
+
+##  Instalación y Ejecución
+
+- pip install -r requirements.txt
+- python database.py
+- python main.py

@@ -31,7 +31,7 @@ def inicializar_bd():
         )
     ''')
 
-    # 3. NUEVO: TABLA USUARIOS
+    # 3. TABLA USUARIOS
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS usuarios (
             id TEXT PRIMARY KEY,
@@ -42,7 +42,7 @@ def inicializar_bd():
         )
     ''')
 
-    # 4. NUEVO: CREAR USUARIOS POR DEFECTO (Solo si la tabla está vacía)
+    # 4. CREAR USUARIOS POR DEFECTO (Solo si la tabla está vacía)
     cursor.execute("SELECT COUNT(*) FROM usuarios")
     if cursor.fetchone()[0] == 0:
         # Creamos un Admin (Dueño)
@@ -64,3 +64,6 @@ def inicializar_bd():
 
 if __name__ == "__main__":
     inicializar_bd()
+
+#CREAS TU BD LOCAL CON ESTE ARCHIVO, LUEGO EJECUTAS main.py Y YA TE DEBERÍA FUNCIONAR EL LOGIN CON admin/admin123 O cajero1/1234. DESDE ALLÍ PUEDES PROBAR EL DASHBOARD Y EL INVENTARIO. SI QUIERES BORRAR LA BD Y EMPEZAR DE NUEVO, SOLO BORRA EL ARCHIVO liastore_local.db Y VUELVE A EJECUTAR ESTE database.py PARA RECREARLA CON LOS USUARIOS POR DEFECTO.
+# python database.py

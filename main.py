@@ -24,7 +24,6 @@ def main(page: ft.Page):
         elif nombre_vista == "inventario":
             contenedor_vistas.content = vista_inventario()
         elif nombre_vista == "logout":
-            # Si dan clic en logout, volvemos a poner la vista de login en la raíz
             contenedor_raiz.content = vista_login(on_login_success=al_hacer_login)
         page.update()
 
@@ -43,13 +42,12 @@ def main(page: ft.Page):
         
         # 3. Lógica de redirección por rol
         if rol == 'admin':
-            cambiar_vista("dashboard") # El dueño quiere ver sus ganancias al entrar
+            cambiar_vista("dashboard") # El dueño quiere ve sus métricas al entrar, no la caja registradora
         else:
             cambiar_vista("pos")       # El trabajador va directo a la caja registradora
             
         page.update()
 
-    # Arrancamos mostrando solo el login
     contenedor_raiz.content = vista_login(on_login_success=al_hacer_login)
     page.add(contenedor_raiz)
 

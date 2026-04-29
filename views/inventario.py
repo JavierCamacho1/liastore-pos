@@ -3,7 +3,7 @@ import sqlite3
 import uuid
 
 def vista_inventario():
-    # --- 1. CONTROLES BÁSICOS ---
+    # CONTROLES
     txt_nombre = ft.TextField(label="Nombre del Producto", width=250)
     txt_precio = ft.TextField(label="Precio ($)", width=120)
     txt_stock = ft.TextField(label="Stock", width=100)
@@ -13,7 +13,7 @@ def vista_inventario():
         options=[ft.dropdown.Option(t) for t in ["XS", "S", "M", "L", "XL", "Unitalla"]]
     )
 
-    # --- 2. SECCIÓN DE COLOR ---
+    #  SECCIÓN DE COLOR
     drop_color = ft.Dropdown(
         label="Color", width=150, 
         options=[ft.dropdown.Option(c) for c in ["Blanco", "Negro", "Rojo", "Azul", "Beige", "Gris", "Otro..."]]
@@ -24,19 +24,18 @@ def vista_inventario():
     row_custom = ft.Row(controls=[txt_color_custom, btn_cancelar], visible=False, spacing=0)
     seccion_color = ft.Row(controls=[drop_color, row_custom], spacing=0)
 
-    # ✅ FUNCIONES DENTRO de vista_inventario (indentación correcta)
+    #  FUNCIONES DENTRO de vista_inventario 
     def mostrar_custom(e):
         if drop_color.value == "Otro...":
             drop_color.visible = False
             row_custom.visible = True
-            e.page.update()  # ← Redibuja todo, sin falla
+            e.page.update()  
 
     def ocultar_custom(e=None):
         drop_color.value = None
         drop_color.visible = True
         row_custom.visible = False
         txt_color_custom.value = ""
-        # Cuando se llama desde guardar_producto (sin evento), usamos los individuales
         drop_color.update()
         row_custom.update()
         txt_color_custom.update()
@@ -46,7 +45,7 @@ def vista_inventario():
 
     lbl_mensaje = ft.Text("", color=ft.Colors.GREEN_600, weight=ft.FontWeight.BOLD)
 
-    # --- 3. TABLA ---
+    # TABLA 
     tabla_datos = ft.DataTable(
         columns=[
             ft.DataColumn(ft.Text("Producto")),
@@ -58,7 +57,7 @@ def vista_inventario():
         rows=[]
     )
 
-    # --- 4. LÓGICA DE BACKEND ---
+    # LÓGICA
     def cargar_inventario():
         tabla_datos.rows.clear()
         try:
@@ -95,7 +94,7 @@ def vista_inventario():
             color_final = drop_color.value
 
         if not all([txt_nombre.value, txt_precio.value, txt_stock.value, drop_talla.value, color_final]) or color_final == "Otro...":
-            lbl_mensaje.value = "⚠️ Completa todos los campos con un color válido."
+            lbl_mensaje.value = " Completa todos los campos con un color válido."
             lbl_mensaje.color = ft.Colors.RED
             lbl_mensaje.update()
             return
@@ -136,7 +135,7 @@ def vista_inventario():
             txt_stock.update()
             drop_talla.update()
             
-            lbl_mensaje.value = "✅ Variante agregada con éxito."
+            lbl_mensaje.value = "Variante agregada con éxito."
             lbl_mensaje.color = ft.Colors.GREEN
             lbl_mensaje.update()
             

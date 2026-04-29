@@ -1,9 +1,8 @@
 import flet as ft
 
-# esta funcion simplemente dibuja y devuelve la pantalla del dashboard
 import flet as ft
 
-# Esta función simplemente "dibuja" y devuelve la pantalla del Dashboard.
+# Esta función simplemente dibuja y devuelve la pantalla del Dashboard.
 def vista_dashboard():
     return ft.Container(
         expand=True, # Para que llene todo el espacio disponible a la derecha
@@ -11,9 +10,8 @@ def vista_dashboard():
         content=ft.Column(
             controls=[
                 ft.Text("Resumen del Día", size=32, weight=ft.FontWeight.BOLD),
-                ft.Text("Métricas actualizadas desde SQLite local.", size=16, color=ft.Colors.GREY_700),
+                ft.Text("Métricas actualizadas desde SQLite.", size=16, color=ft.Colors.GREY_700),
                 
-                # Una fila con nuestras tarjetas de prueba
                 ft.Row(
                     controls=[
                         _crear_tarjeta_metrica("Ventas de Hoy", "$0.00", ft.Colors.GREEN_700),
@@ -25,7 +23,7 @@ def vista_dashboard():
         )
     )
 
-# Otra función ayudante para no repetir código visual.
+# función  para no repetir código visual.
 def _crear_tarjeta_metrica(titulo, valor, color_valor):
     return ft.Card(
         content=ft.Container(

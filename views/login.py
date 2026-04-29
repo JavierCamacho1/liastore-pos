@@ -29,7 +29,6 @@ def vista_login(on_login_success):
 
     return ft.Container(
         expand=True,
-        # EL FIX INFALIBLE PARA FLET 0.84+: 0,0 es el centro exacto del eje X y Y
         alignment=ft.Alignment(0, 0), 
         bgcolor=ft.Colors.GREY_50,
         content=ft.Card(
@@ -46,7 +45,6 @@ def vista_login(on_login_success):
                         txt_usuario,
                         txt_password,
                         lbl_error,
-                        # Adaptado: ElevatedButton ahora también exige que su contenido sea un Control (ft.Text)
                         ft.ElevatedButton(
                             content=ft.Text("Entrar", color=ft.Colors.WHITE), 
                             on_click=intentar_login, 
