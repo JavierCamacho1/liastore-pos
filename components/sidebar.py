@@ -1,7 +1,7 @@
 import flet as ft
 
 class Sidebar(ft.Container):
-    # Ahora recibimos el 'rol' desde el Login
+    #  recibimos el 'rol' desde el Login
     def __init__(self, on_cambiar_vista, rol):
         super().__init__()
         self.on_cambiar_vista = on_cambiar_vista
@@ -11,7 +11,7 @@ class Sidebar(ft.Container):
         self.bgcolor = ft.Colors.BLUE_GREY_900
         self.padding = 20
         
-        # 1. Botones base (Todos los ven)
+        # 1. Botones base 
         controles_menu = [
             ft.Text("LIASTORE", size=24, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE),
             ft.Text(f"Rol: {self.rol.upper()}", size=12, color=ft.Colors.GREEN_400),
@@ -29,7 +29,7 @@ class Sidebar(ft.Container):
         if self.rol == 'admin':
             controles_menu.append(self._crear_boton("Inventario", ft.Icons.INVENTORY_2, "inventario"))
 
-        # NUEVO: Botón de Logout al fondo
+        # Botón de Logout
         controles_menu.append(ft.Divider(color=ft.Colors.WHITE24))
         controles_menu.append(self._crear_boton("Cerrar Sesión", ft.Icons.LOGOUT, "logout"))
             
@@ -40,7 +40,6 @@ class Sidebar(ft.Container):
 
     def _crear_boton(self, texto, icono, nombre_vista):
         return ft.TextButton(
-            # Adaptado a Flet 0.84+: content debe ser un ft.Text, no un string
             content=ft.Text(texto, color=ft.Colors.WHITE), 
             icon=icono,
             icon_color=ft.Colors.WHITE,
