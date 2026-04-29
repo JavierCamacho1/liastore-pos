@@ -1,0 +1,11 @@
+# Interfaz Gráfica
+flet
+
+# Cliente de Base de Datos en la Nube
+supabase
+
+# Manejo de Variables de Entorno
+python-dotenv
+
+#Impresión de Tickets
+python-escpos
